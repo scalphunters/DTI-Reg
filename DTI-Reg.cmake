@@ -10,7 +10,7 @@ include(${SlicerExecutionModel_USE_FILE})
 if(NOT BatchMake_DIR OR NOT BatchMake_SOURCE_DIR)
   set(BatchMake_SOURCE_DIR "" CACHE PATH "BatchMake source directory")
   set(BatchMake_DIR "" CACHE PATH "BatchMake build directory")
-else()
+endif()
 set(BatchMake_LIBRARIES 
   BatchMakeLib
   BatchMakeUtilities
