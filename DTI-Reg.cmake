@@ -7,8 +7,10 @@ include(CMakeParseArguments)
 find_package(SlicerExecutionModel)
 include(${SlicerExecutionModel_USE_FILE})
 #-----------------------------------------------------------------------------
-set(BatchMake_SOURCE_DIR "" CACHE PATH "BatchMake source directory")
-set(BatchMake_DIR "" CACHE PATH "BatchMake build directory")
+if(NOT BatchMake_DIR OR NOT BatchMake_SOURCE_DIR)
+  set(BatchMake_SOURCE_DIR "" CACHE PATH "BatchMake source directory")
+  set(BatchMake_DIR "" CACHE PATH "BatchMake build directory")
+else()
 set(BatchMake_LIBRARIES 
   BatchMakeLib
   BatchMakeUtilities

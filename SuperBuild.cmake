@@ -352,7 +352,7 @@ endif()
 
 set(proj_build ${proj}-build)
 
-if(NOT ${BatchMake_SOURCE_DIR})
+if(NOT DEFINED BatchMake_SOURCE_DIR)
   set(BatchMake_SOURCE_DIR ${EXTERNAL_SOURCE_DIRECTORY}/BatchMake)
 endif()
 
