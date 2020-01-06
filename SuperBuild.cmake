@@ -352,6 +352,10 @@ endif()
 
 set(proj_build ${proj}-build)
 
+if(NOT ${BatchMake_SOURCE_DIR})
+  set(BatchMake_SOURCE_DIR ${EXTERNAL_SOURCE_DIRECTORY}/BatchMake)
+endif()
+
 ExternalProject_Add(${proj}-inner
   DEPENDS ${${LOCAL_PROJECT_NAME}_DEPENDENCIES}
   DOWNLOAD_COMMAND ""
@@ -363,7 +367,7 @@ ExternalProject_Add(${proj}-inner
     ${COMMON_EXTERNAL_PROJECT_ARGS}
     -D${LOCAL_PROJECT_NAME}_SUPERBUILD:BOOL=OFF
     -DCMAKE_INSTALL_PREFIX:PATH=${DTI-Reg_INSTALL_DIRECTORY}
-    -DBatchMake_SOURCE_DIR:PATH=${EXTERNAL_SOURCE_DIRECTORY}/BatchMake
+    -DBatchMake_SOURCE_DIR:PATH=${BatchMake_SOURCE_DIR}
   )
 
 if( DTI-Reg_BUILD_SLICER_EXTENSION )
